@@ -1,0 +1,311 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Volkorn", Georgia, serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+:root {
+  --cor1: #8844ee;
+  --cor2: #b07dfb;
+  --linear: linear-gradient(135deg, var(--cor1), var(--cor2));
+  --background: #fafbfc;
+  --white: white;
+  --hover: #430590;
+}
+
+/* CONTAINER GERAL*/
+
+.estrutura {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+  grid-template-areas:
+    "header header header"
+    "sidenav content aside"
+    "footer footer footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidenav {
+  grid-area: sidenav;
+}
+
+.content {
+  grid-area: content;
+}
+
+.aside {
+  grid-area: aside;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+/* HEADER */
+
+.logo {
+  max-width: 200px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--linear);
+  padding: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.menu a {
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  color: var(--white);
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: var(--hover);
+}
+
+/* SIDENAV */
+
+.sidenav {
+  background-color: var(--background);
+  padding: 30px;
+}
+
+.sidenav li a {
+  display: block;
+  min-width: 60px;
+  max-width: 100px;
+  margin: 0 auto 30px auto;
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0 rgb(44, 44, 44, 0.15);
+  transition: 0.3s;
+}
+
+.sidenav li a:hover {
+  background: var(--cor2);
+}
+
+/* CONTENT */
+
+.content {
+  max-width: 900px;
+  justify-self: center;
+  padding: 30px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.col-wide {
+  grid-column: 1 / -1;
+}
+
+.titulo {
+  color: var(--cor2);
+}
+
+.titulo h1 {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.titulo span {
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.caracteristica {
+  display: flex;
+  gap: 30px;
+  place-items: start;
+}
+
+.caracteristica > div {
+  width: 80px;
+  text-align: center;
+  border-radius: 5px 5px 20px 20px;
+  background: var(--linear);
+  box-shadow: 5px 5px 15px 0 rgb(44, 44, 44, 0.15);
+}
+
+.caracteristica span {
+  display: block;
+  color: var(--cor2);
+}
+
+.numero {
+  font-size: 3rem;
+  line-height: 1;
+  margin: 10px auto;
+}
+
+.rotulo {
+  background: var(--white);
+  border-radius: 0 0 5px 5px;
+  padding: 5px 0;
+}
+
+.lobo-1,
+.lobo-2 {
+  align-self: end;
+}
+
+.informacao {
+  display: grid;
+  align-content: space-between;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  letter-spacing: -0.005rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.observacao {
+  font-size: 0.875rem;
+  color: var(--cor2);
+  max-width: 16rem;
+}
+
+.citacao,
+.atributo {
+    align-self: start;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.15);
+  background: var(--linear);
+}
+
+.citacao p {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    color: white;
+}
+
+.atributo li {
+    color: white;
+    font-family: Courier, monospace;
+    font-size: 1.125rem;
+    padding: 15px;
+}
+
+.atributo li + li {
+    border-top: 2px solid var(--cor2);
+}
+
+.img-lobo {
+    width: 100%;
+}
+
+/* ASIDE */ 
+
+.aside {
+  display: grid;
+  align-content: start;
+  background: var(--background);
+  padding: 30px;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* FOOTER */
+
+.footer {
+  background: var(--linear);
+}
+
+.footer p {
+  color: var(--white);
+  text-align: center;
+  padding: 30px;
+}
+
+
+/* MEDIA */
+
+@media (max-width: 1200px) {
+    .estrutura {
+        grid-template-areas: 
+        "header header header"
+        "sidenav content content"
+        "sidenav aside aside"
+        "footer footer footer";
+    }
+}
+
+@media (max-width: 760px) {
+    .header {
+        flex-direction: column;
+        gap: 30px;
+        font-size: 1rem;
+    }
+
+    .sidenav ul {
+        display: flex;
+        flex-wrap: wrap;
+        
+        column-gap: 30px;
+    }
+
+    .sidenav ul li {
+        flex: 1 1 80px;
+    }
+
+    .estrutura {
+        grid-template-columns: 100%;
+
+        grid-template-areas: 
+        "header"
+        "sidenav"
+        "content"
+        "aside"
+        "footer";
+    }
+}
+
+@media (max-width: 650px) {
+    .content {
+        grid-template-columns: 100%;
+    }
+}
